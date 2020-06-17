@@ -46,8 +46,8 @@ public class NewsService implements BaseService<News, NewsExample>{
 	
 	/**
 	 * 分页查询
-	 * @param pageNum
-	 * @param pageSize
+	 * @param tablepar
+	 * @param searchText
 	 * @return
 	 */
 	 public PageInfo<News> list(Tablepar tablepar,String searchText){
@@ -72,7 +72,22 @@ public class NewsService implements BaseService<News, NewsExample>{
 			List<Integer> stringB = Arrays.asList(integers);
 			NewsExample example=new NewsExample();
 			example.createCriteria().andIdIn(stringB);
-			return newsMapper.deleteByExample(example);
+
+			//先查出fileid
+			List<News> list = newsMapper.selectByExample(example);
+			
+			int result = newsMapper.deleteByExample(example);
+
+			//删除成功
+			if(result > 0){
+				//删除对应文件及关联表数据
+				list.forEach(news -> {
+					tsysFileMapper.deleteByPrimaryKey(news.getImgUrl());
+					tsysFileDataMapper.deleteByFileId(news.getImgUrl());
+				});
+
+			}
+			return result;
 			
 				
 	}
@@ -116,29 +131,32 @@ public class NewsService implements BaseService<News, NewsExample>{
 	@Override
 	public int updateByPrimaryKeySelective(News record) {
 
-		TsysFile tsysFile = new TsysFile();
+		News news = newsMapper.selectByPrimaryKey(record.getId());
+		if(!news.getImgUrl().equals(record.getImgUrl())){
+			TsysFile tsysFile = new TsysFile();
 
-		//图片单独处理
-		//插入创建人id
-		tsysFile.setCreateUserId(ShiroUtils.getUserId());
-		//插入创建人name
-		tsysFile.setCreateUserName(ShiroUtils.getLoginName());
-		//插入创建时间
-		tsysFile.setCreateTime(new Date());
-		//添加雪花主键id
-		tsysFile.setId(SnowflakeIdWorker.getUUID());
+			//图片单独处理
+			//插入创建人id
+			tsysFile.setCreateUserId(ShiroUtils.getUserId());
+			//插入创建人name
+			tsysFile.setCreateUserName(ShiroUtils.getLoginName());
+			//插入创建时间
+			tsysFile.setCreateTime(new Date());
+			//添加雪花主键id
+			tsysFile.setId(SnowflakeIdWorker.getUUID());
 
-		tsysFileMapper.insertSelective(tsysFile);
+			tsysFileMapper.insertSelective(tsysFile);
 
-		//图片插入关联表
-		TsysFileData tsysFileData=new TsysFileData();
-		tsysFileData.setId(SnowflakeIdWorker.getUUID());
-		tsysFileData.setFileId(tsysFile.getId());
-		tsysFileData.setDataId(record.getImgUrl());
-		tsysFileDataMapper.insert(tsysFileData);
-
-		//图片地址
-		record.setImgUrl(tsysFile.getId());
+			//图片插入关联表
+			TsysFileData tsysFileData=new TsysFileData();
+			tsysFileData.setId(SnowflakeIdWorker.getUUID());
+			tsysFileData.setFileId(tsysFile.getId());
+			tsysFileData.setDataId(record.getImgUrl());
+			tsysFileDataMapper.insert(tsysFileData);
+			
+			//图片地址
+			record.setImgUrl(tsysFile.getId());
+		}
 		
 		return newsMapper.updateByPrimaryKeySelective(record);
 	}

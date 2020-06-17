@@ -12,6 +12,8 @@ public interface TsysFileDataMapper {
 
     int deleteByPrimaryKey(String id);
 
+    int deleteByFileId(String id);
+
     int insert(TsysFileData record);
 
     int insertSelective(TsysFileData record);
