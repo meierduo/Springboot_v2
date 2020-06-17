@@ -20,7 +20,12 @@ public class TitleVo {
 	private String msgHtml;//欢迎语内容 默认内容为""
 	private boolean isControl;//控件下拉列表点击  默认true
 	private boolean isribbon;//控件彩带 默认true
-	public String getTitle() {
+
+    public TitleVo() {
+        
+    }
+
+    public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {

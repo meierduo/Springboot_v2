@@ -182,6 +182,30 @@
                     $.operate.submit(url, "post", "json", data);
                 })
             },
+            updateState: function (id, state) {
+                var url = $.common.isEmpty(id) ? $.table._option.updateStateUrl : $.table._option.updateStateUrl.replace("{id, state}", id, state);
+                var data = {
+                    "id": id,
+                    "state": state
+                };
+                $.operate.submit(url, "post", "json", data);
+            },
+            updateTop: function (id, state) {
+                var url = $.common.isEmpty(id) ? $.table._option.updateTopUrl : $.table._option.updateTopUrl.replace("{id, state}", id, state);
+                var data = {
+                    "id": id,
+                    "state": state
+                };
+                $.operate.submit(url, "post", "json", data);
+            },
+            updateIndex: function (id, state) {
+                var url = $.common.isEmpty(id) ? $.table._option.updateIndexUrl : $.table._option.updateIndexUrl.replace("{id, state}", id, state);
+                var data = {
+                    "id": id,
+                    "state": state
+                };
+                $.operate.submit(url, "post", "json", data);
+            },
 			ajaxSuccess: function(result) {
                 if (result.code == web_status.SUCCESS) {
                     $.modal.msgSuccess(result.msg);

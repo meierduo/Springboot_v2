@@ -63,7 +63,7 @@ public class AdminController extends BaseController{
 	@ApiOperation(value="局部刷新区域",notes="局部刷新区域")
 	@GetMapping("/main")
 	public String main(ModelMap map) {
-		setTitle(map, new TitleVo("首页", "首页", true,"欢迎进入", true, false));
+		setTitle(map, new TitleVo("首页", "首页", false,"欢迎进入", true, false));
 		return prefix+"/main";
 	}
 	
