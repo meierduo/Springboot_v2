@@ -2,6 +2,8 @@ package com.fc.test.mapper.auto;
 
 import com.fc.test.model.auto.EnterpriseUser;
 import com.fc.test.model.auto.EnterpriseUserExample;
+
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -34,5 +36,6 @@ public interface EnterpriseUserMapper {
     int updateByPrimaryKeySelective(EnterpriseUser record);
 
     int updateByPrimaryKey(EnterpriseUser record);
-  	  	
+
+    int updateStateByPrimaryKey(String id, String isused, Date updateTime, String updateUserId, String updateUserName);
 }

@@ -1,7 +1,10 @@
 package com.fc.test.service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Arrays;
+
+import com.fc.test.shiro.util.ShiroUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
@@ -136,5 +139,20 @@ public class EnterpriseUserService implements BaseService<EnterpriseUser, Enterp
 		return list.size();
 	}
 
+	/*
+	* @Description 修改用户账号状态
+	* @PARAM [id, status]
+	* @RETURN int
+	**/
+	public int updateStateByPrimaryKey(String id, boolean status) {
 
+		String isused = "0";
+		if (status) {
+			isused = "1";
+		}
+		String updateUserId = ShiroUtils.getUserId();
+		String updateUserName = ShiroUtils.getLoginName();
+		
+		return enterpriseUserMapper.updateStateByPrimaryKey(id, isused, new Date(), updateUserId, updateUserName);
+	}
 }
