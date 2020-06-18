@@ -2,6 +2,8 @@ package com.fc.test.mapper.auto;
 
 import com.fc.test.model.auto.News;
 import com.fc.test.model.auto.NewsExample;
+
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -35,9 +37,9 @@ public interface NewsMapper {
 
     int updateByPrimaryKey(News record);
 
-    int updateStateByPrimaryKey(Integer id, String state);
+    int updateStateByPrimaryKey(Integer id, String state, Date updateTime);
 
-    int updateTopByPrimaryKey(Integer id, String state);
+    int updateTopByPrimaryKey(Integer id, String state, Date updateTime);
 
-    int updateIndexByPrimaryKey(Integer id, String state);
+    int updateIndexByPrimaryKey(Integer id, String state, Date updateTime);
 }

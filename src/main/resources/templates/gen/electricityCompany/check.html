@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.pollix.at/thymeleaf/shiro">
-<head th:replace="admin/common/html/tableHead :: head(~{::title},~{::link},~{::style})">
+<head th:replace="admin/common/html/tableHead :: tableHead(~{::title},~{::link},~{::style})">
 
     <title th:text=${title}></title>
     <!-- 这儿引用单独的css link -->
@@ -9,9 +9,11 @@
     <link rel="stylesheet" th:href="@{/static/admin/assets/js/button/ladda/ladda.min.css}">
     <!-- bootstrap-table表单样式 -->
     <link th:href="@{/static/admin/assets/js/bootstrap/css/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet"/>
+
     <!-- 用户界面自定义css -->
     <link th:href="@{/static/admin/user/css/user-add.css}" rel="stylesheet"/>
     <style type="text/css"></style>
+
 </head>
 
 <body>
@@ -24,29 +26,18 @@
                 </div>
                 <div class="body-nest" id="element">
                     <div class="panel-body">
-                        <form  class="form-horizontal m" id="form-add">
+                        <form  class="form-horizontal m" id="form-check" th:object="${ElectricityCompany}">
+                            <input id="id" name="id" type="hidden" th:field="*{id}"/>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label ">岗位名称：</label>
+                                <label class="col-sm-3 control-label ">审核状态：</label>
                                 <div class="col-sm-8">
-                                    <input class="form-control" type="text" id="postName" name="postName"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label ">排序：</label>
-                                <div class="col-sm-8">
-                                    <input class="form-control" type="number" value="1" id="orderNum" name="orderNum"/>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label ">状态：</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control"  id="status" name="status">
-                                        <option value="1">开启</option>
-                                        <option value="0">关闭</option>
+                                    <select class="form-control"  id="status" name="status" th:field="*{ischeck}">
+                                        <option value="0">审核失败</option>
+                                        <option value="1">审核中</option>
+                                        <option value="2">审核通过</option>
                                     </select>
+
                                 </div>
                             </div>
 
@@ -76,13 +67,10 @@
 
 
 <!-- 弹窗 -->
-<script  th:src="@{/static/admin/assets/js/layer/layer.js}" type="text/javascript"></script>
+<script th:src="@{/static/admin/assets/js/layer/layer.js}" type="text/javascript"></script>
 <!-- 遮罩层 -->
-<script  th:src="@{/static/admin/assets/js/blockUI/jquery.blockUI.js}" type="text/javascript"></script>
-<!-- jqueryForm序列化 -->
-<script  th:src="@{/static/js/jqueryFormSerializeJson.js}" type="text/javascript"></script>
+<script th:src="@{/static/admin/assets/js/blockUI/jquery.blockUI.js}" type="text/javascript"></script>
 <script type="text/javascript">
-
     $(function(){
         $(".MyDate").datetimepicker({
             format: "yyyy-mm-dd hh:00:00",
@@ -97,44 +85,18 @@
     })
 
 
-    $("#form-add").validate({
-        rules:{
-            postName:{
-                required:true,
-                minlength: 2,
-                maxlength: 20,
-                remote: {
-                    url: rootPath + "/SysPositionController/checkNameUnique",
-                    type: "post",
-                    dataType: "json",
-                    dataFilter: function(data, type) {
-                        if (data == "0")
-                            return true;
-                        else
-                            return false;
-                    }
-                }
-            }
-        },
-        messages: {
-            "postName": {
-                remote: "已经存在"
-            }
-        },
-        submitHandler:function(form){
-            add();
+    $("#form-check").validate({
+        submitHandler : function(form) {
+            edit();
         }
     });
 
-    /**
-     * 用户添加方法
-     */
-    function add() {
-        var dataFormJson=$("#form-add").serialize();
+    function edit() {
+        var dataFormJson = $("#form-check").serialize();
         $.ajax({
             cache : true,
             type : "POST",
-            url : rootPath + "/SysPositionController/add",
+            url : rootPath + "/ElectricityCompanyController/check",
             data : dataFormJson,
             async : false,
             error : function(request) {
@@ -145,10 +107,7 @@
             }
         });
     }
-
-
 </script>
-
 
 </body>
 
