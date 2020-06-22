@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 
 /**
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date: 2018年9月2日 下午8:08:21
  */
 @Api(value = "用户角色")
+@ApiIgnore
 @Controller
 @RequestMapping("/RoleController")
 public class RoleController extends BaseController{

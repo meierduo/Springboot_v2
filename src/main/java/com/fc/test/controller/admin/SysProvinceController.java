@@ -19,6 +19,7 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysProvinceService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 省份Controller
@@ -27,6 +28,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:32
  */
 @Api(value = "省份表")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysProvinceController")
 public class SysProvinceController extends BaseController{

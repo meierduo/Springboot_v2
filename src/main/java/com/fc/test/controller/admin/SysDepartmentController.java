@@ -20,8 +20,10 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysDepartmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 @Api(value = "部门表")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysDepartmentController")
 public class SysDepartmentController extends BaseController{

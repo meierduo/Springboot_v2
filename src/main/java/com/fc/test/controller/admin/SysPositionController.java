@@ -19,7 +19,9 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysPositionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
+@ApiIgnore
 @Controller
 @RequestMapping("/SysPositionController")
 @Api(value = "岗位表")

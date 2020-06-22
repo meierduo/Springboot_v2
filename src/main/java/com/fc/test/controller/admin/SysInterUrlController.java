@@ -19,8 +19,10 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysInterUrlService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 @Api(value = "拦截url表")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysInterUrlController")
 public class SysInterUrlController extends BaseController{

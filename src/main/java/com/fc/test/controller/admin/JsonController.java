@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2019-09-21 17:59
  */
 @Api(value = "Json格式化")
+@ApiIgnore
 @Controller
 @RequestMapping("/Json")
 public class JsonController extends BaseController{

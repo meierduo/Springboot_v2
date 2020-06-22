@@ -20,6 +20,7 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysDictTypeService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 字典类型Controller
@@ -28,6 +29,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:45
  */
 @Api(value = "字典类型表")
+@ApiIgnore
 @Controller
 @RequestMapping("/DictTypeController")
 public class DictTypeController extends BaseController{

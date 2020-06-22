@@ -18,14 +18,16 @@ import com.fc.test.model.custom.TableSplitResult;
 import com.fc.test.model.custom.Tablepar;
 import com.fc.test.model.custom.TitleVo;
 import com.github.pagehelper.PageInfo;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 日志记录controller
  * @author fuce 
  * @date: 2018年9月30日 下午9:28:31
  */
-@Controller
 @Api(value = "日志记录")
+@ApiIgnore
+@Controller
 @RequestMapping("/LogController")
 public class LogController extends BaseController{
 

@@ -19,6 +19,7 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysStreetService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 街道Controller
@@ -27,6 +28,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:32
  */
 @Api(value = "街道设置")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysStreetController")
 public class SysStreetController extends BaseController{

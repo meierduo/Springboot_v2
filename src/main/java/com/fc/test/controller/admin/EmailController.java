@@ -23,6 +23,7 @@ import com.github.pagehelper.PageInfo;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 邮件发送Controller
@@ -32,6 +33,7 @@ import io.swagger.annotations.ApiOperation;
  * @version V1.0
  */
 @Api(value = "邮件发送Controller")
+@ApiIgnore
 @Controller
 @RequestMapping("/EmailController")
 public class EmailController extends BaseController{

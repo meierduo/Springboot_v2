@@ -9,6 +9,7 @@ import com.fc.test.common.base.BaseController;
 import com.fc.test.model.custom.TitleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * SwaggerController
@@ -17,6 +18,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:34
  */
 @Api(value = "Api接口文档")
+@ApiIgnore
 @Controller
 @RequestMapping("/SwaggerController")
 public class SwaggerController  extends BaseController{

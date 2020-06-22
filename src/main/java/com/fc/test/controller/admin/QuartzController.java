@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 
 /**
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2019-11-20 22:44
  */
 @Api(value = "定时任务工具类")
+@ApiIgnore
 @Controller
 @RequestMapping("/quartz")
 public class QuartzController extends BaseController{

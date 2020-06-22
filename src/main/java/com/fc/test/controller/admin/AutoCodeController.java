@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 代码自动生成
@@ -37,6 +38,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @date 2019-08-13 00:34
  */
 @Api(value = "代码自动生成")
+@ApiIgnore
 @Controller
 @RequestMapping("/autoCodeController")
 public class AutoCodeController extends BaseController {

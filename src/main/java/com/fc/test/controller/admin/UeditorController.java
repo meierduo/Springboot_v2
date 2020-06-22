@@ -14,6 +14,7 @@ import com.fc.test.model.custom.Ueditor;
 import com.fc.test.service.UeditorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 百度Controller
@@ -22,6 +23,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:34
  */
 @Api(value = "百度编辑器")
+@ApiIgnore
 @Controller
 @RequestMapping("/UeditorController")
 public class UeditorController  extends BaseController{

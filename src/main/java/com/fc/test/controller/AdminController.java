@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 后台方法
@@ -40,6 +41,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @date 2019-10-21 00:10
  *
  */
+@ApiIgnore //swagger不展示此API接口
 @Controller
 @RequestMapping("/admin")
 public class AdminController extends BaseController{

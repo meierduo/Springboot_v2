@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 如果有前台这儿写前台访问方法
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author fuce
  * @date 2019-10-21 00:15
  */
+@ApiIgnore
 @Controller
 public class IndexController extends BaseController{
 	

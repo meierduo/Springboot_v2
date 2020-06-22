@@ -24,6 +24,7 @@ import com.github.pagehelper.PageInfo;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 用户Controller
@@ -32,6 +33,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:35
  */
 @Api(value = "用户数据")
+@ApiIgnore
 @Controller
 @RequestMapping("/UserController")
 public class UserController extends BaseController{

@@ -25,12 +25,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fc.test.common.base.BaseController;
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 图片验证码
  * @author fc
  */
 @Api(value = "验证码")
+@ApiIgnore
 @Controller
 @RequestMapping("/captcha")
 public class CaptchaController extends BaseController

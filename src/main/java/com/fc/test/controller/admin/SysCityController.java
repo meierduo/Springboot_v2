@@ -19,6 +19,7 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysCityService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 城市Controller
@@ -27,6 +28,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:31
  */
 @Api(value = "城市设置")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysCityController")
 public class SysCityController extends BaseController{

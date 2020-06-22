@@ -8,6 +8,7 @@ import com.fc.test.common.domain.AjaxResult;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 该接口为了前后端分离or手机端服务不用登录的接口  访问地址:localhot:8080/ApiController/test
@@ -17,6 +18,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2020-04-15 22:59
  */
 @Api(value = "接口API")
+@ApiIgnore
 @Controller
 @RequestMapping("/ApiController")
 public class ApiController {

@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import springfox.documentation.annotations.ApiIgnore;
+
 import java.io.IOException;
 
 /**
@@ -22,6 +24,7 @@ import java.io.IOException;
  * @Version 1.0
  **/
 @Api(value = "七牛文件上传")
+@ApiIgnore
 @Controller
 @RequestMapping("/QiNiuCloudController")
 public class QiNiuCloudController extends BaseController {

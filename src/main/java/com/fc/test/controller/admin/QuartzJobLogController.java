@@ -19,6 +19,7 @@ import com.fc.test.model.custom.TitleVo;
 import com.fc.test.service.SysQuartzJobLogService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 定时任务日志Controller
@@ -27,6 +28,7 @@ import io.swagger.annotations.ApiOperation;
 * @date 2019-11-20 22:51
  */
 @Api(value = "定时任务调度日志表")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysQuartzJobLogController")
 public class QuartzJobLogController extends BaseController{

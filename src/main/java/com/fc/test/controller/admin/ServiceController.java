@@ -10,6 +10,7 @@ import com.fc.test.model.custom.Service;
 import com.fc.test.model.custom.TitleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 服务器信息Controller
@@ -19,6 +20,7 @@ import io.swagger.annotations.ApiOperation;
  * @version V1.0
  */
 @Api(value = "服务器信息")
+@ApiIgnore
 @Controller
 @RequestMapping("/ServiceController")
 public class ServiceController extends BaseController{

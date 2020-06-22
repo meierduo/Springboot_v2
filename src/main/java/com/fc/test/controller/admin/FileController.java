@@ -25,6 +25,7 @@ import com.fc.test.model.custom.Tablepar;
 import com.fc.test.model.custom.TitleVo;
 import com.fc.test.util.StringUtils;
 import com.github.pagehelper.PageInfo;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 文件上传controller
@@ -32,6 +33,7 @@ import com.github.pagehelper.PageInfo;
  * @date: 2018年9月16日 下午4:23:50
  */
 @Api(value = "文件上传")
+@ApiIgnore
 @Controller
 @RequestMapping("/FileController")
 public class FileController extends BaseController{

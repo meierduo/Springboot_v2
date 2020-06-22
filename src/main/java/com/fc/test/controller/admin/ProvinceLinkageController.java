@@ -23,6 +23,7 @@ import com.fc.test.service.SysStreetService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 省份联动controller
@@ -31,6 +32,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-10-05 11:19
  */
 @Api(value = "省份联动controller")
+@ApiIgnore
 @Controller
 @RequestMapping("/ProvinceLinkageController")
 public class ProvinceLinkageController  extends BaseController{

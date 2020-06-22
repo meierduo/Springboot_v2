@@ -22,6 +22,7 @@ import com.fc.test.model.custom.Tablepar;
 import com.fc.test.model.custom.TitleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 字典表Controller
@@ -30,6 +31,7 @@ import io.swagger.annotations.ApiOperation;
  * @date 2019-11-20 22:46
  */
 @Api(value = "字典数据表")
+@ApiIgnore
 @Controller
 @RequestMapping("/DictDataController")
 public class DictDataController extends BaseController{

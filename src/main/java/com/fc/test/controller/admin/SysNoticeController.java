@@ -21,14 +21,16 @@ import com.fc.test.shiro.util.ShiroUtils;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
-/**
+ /**
  * 公告Controller
  * @ClassName: SysNoticeController
  * @author fuce
  * @date 2019-11-20 22:31
  */
 @Api(value = "公告")
+@ApiIgnore
 @Controller
 @RequestMapping("/SysNoticeController")
 public class SysNoticeController extends BaseController{
